@@ -2,23 +2,20 @@
 
 using namespace std; 
 
-bool isJolly(int &N, vector<int> &Differences){
+bool isJolly(int &N, bool *Differences){
 
-    sort(Differences.begin(),Differences.end());
-
-    for(int i = 0; i < N-1; i++){
-        if(i+1 != Differences[i]) return false;
+    for(int i = 1; i < N; i++){
+        if(Differences[i] == false) return false;
     }
 
-
     return true;
-
 }
 
 int main(){
 
     int N, dummy;
-    vector<int> Numbers, Differences; 
+    vector<int> Numbers;
+    bool Differences[(int)1e5];
 
     cin >> N;
 
@@ -28,7 +25,7 @@ int main(){
     }
     
     for(int i = 0; i < N-1; i++){
-        Differences.push_back(abs(Numbers[i]-Numbers[i+1]));
+        Differences[ abs(Numbers[i]-Numbers[i+1]) ] = true;
     }
 
     cout << (isJolly(N, Differences) == true ? "Jolly" : "Not jolly") << endl;

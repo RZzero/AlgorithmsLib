@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "initializer_list": "cpp",
+        "string_view": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp",
+        "chrono": "cpp",
+        "complex": "cpp",
+        "ostream": "cpp",
+        "limits": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
+}
