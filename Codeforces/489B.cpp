@@ -3,6 +3,7 @@
 using namespace std; 
 vector<int> B;
 vector<int> G;
+int MEMO[105][105];
 int N,M;
 
 int DP(int b_idx, int g_idx){
@@ -11,22 +12,34 @@ int DP(int b_idx, int g_idx){
         return 0;
     }
 
+    int res = -1e9;
+    int res1 = -1e9;
+    int res2 = -1e9;
+    int res3 = -1e9;
 
-    int res = 0;
-    for(int i = b_idx; i < B.size(); i++){
-        cout << i << " " << g_idx << endl;
-        cout << B[i] << " " << G[g_idx] << endl;
+    if(MEMO[b_idx][g_idx] >-1) return (MEMO[b_idx][g_idx]);
 
-        if( abs(B[i]-G[g_idx]) <= 1){
+    if( abs(B[b_idx]-G[g_idx]) <= 1){
 
-            res = max(res+1, DP(i+1,g_idx++) );
-        }
+        //Juntandolos
+        res1 = 1+DP(b_idx+1,g_idx+1);
 
+    }else{
+
+        //No juntandolos
+        res2 = 0 + DP(b_idx+1,g_idx);
+        res3 = 0 + DP(b_idx,g_idx+1);
     }
-    return res;
+
+    res = max(res1,max(res2,res3));
+    MEMO[b_idx][g_idx] = res;
+    
+    return MEMO[b_idx][g_idx];
 
 }
 int main(){
+
+    memset(MEMO, -1, sizeof(MEMO));
     int dummy;
     cin >> N;
 
