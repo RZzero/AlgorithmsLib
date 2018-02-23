@@ -10,12 +10,24 @@ int main(){
     if(dg1.size() != dg2.size()){
         cout << "NO" << endl;
     }else{
+        vector<int> Positions;
         for(int i = 0; i < dg2.size(); i++){
             if(dg1[i] != dg2[i]){
-                for(int j = 0; j < dg1.size(); j++){
-                    
+                Positions.push_back(i);
+            }
+        }
+
+        if(Positions.size() != 2){
+            cout << "NO" << endl;
+        }else{
+            swap(dg1[Positions[0]],dg1[Positions[1]]);
+            for(int i = 0; i < dg1.size(); i++){
+                if(dg1[i] != dg2[i]){
+                    cout << "NO" << endl;
+                    return 0;
                 }
             }
+            cout << "YES" << endl;
         }
     }
     return 0;
