@@ -9,15 +9,14 @@ VII adj;
 VI vis;
 
 void DFS(int u){
-
     for(int v: adj[u]){
         if(vis[v]) continue;
         cantidad_nodos++;
         vis[v] = true;
         DFS(v);
     }
-
 }
+
 int main(){
 
     int N, E, u,v;
@@ -34,8 +33,8 @@ int main(){
     
     /*
         PRINT ADJACENCY LIST
-
     */
+
     cout << "ADJACENCY LIST" << endl;
     for(int u = 0; u < N; u++){
         cout << u;
@@ -46,10 +45,8 @@ int main(){
     }
     cout << " " << endl;
     
-
     /*
         COUNT CONNECTED COMPONENTS
-
     */
 
     num_componentes = 0;
@@ -62,9 +59,6 @@ int main(){
             cantidad_nodos = 0;
         }
     }
-
-
-
 
     return 0;
 }
