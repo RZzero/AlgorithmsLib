@@ -1,43 +1,37 @@
 #include <bits/stdc++.h>
 
 using namespace std; 
-const int n = 1e6;
-bool prime[n+1];
-vector<int> Primes;
-void SieveOfEratosthenes()
-{
-	// Create a boolean array "prime[0..n]" and initialize
-	// all entries it as true. A value in prime[i] will
-	// finally be false if i is Not a prime, else true.
+typedef unsigned long long ull;
+set<ull> T_Primes;
 
-	memset(prime, true, sizeof(prime));
+bool is_Prime[2000000];
 
-	for (int p=2; p*p<=n; p++)
-	{
-		// If prime[p] is not changed, then it is a prime
-		if (prime[p] == true)
-		{
-			// Update all multiples of p
-			for (int i=p*2; i<=n; i += p)
-				prime[i] = false;
+void SieveOfErathostenes(){
+	for(ull i = 2; i <= 2000000; i++){
+
+		if(is_Prime[i]){
+			T_Primes.insert(1LL * i * i);
+			
+			for(ull j = i + i; j <= 2000000; j+=i){
+				is_Prime[j] = false;
+			}
 		}
 	}
-    for (int p=2; p<=n; p++){
-	    if (prime[p]) Primes.push_back(p);
-	}
-    int cnt = 0;
-	// Print all prime numbers
+
 }
 int main(){
     ios_base::sync_with_stdio(0);cin.tie(0);
-    SieveOfEratosthenes();
 
-    int T,target;
-    vector<bool> cases;
-    cin >> T;
-    for(int i = 0; i < T; i++){
-        cin >> target;
+	memset(is_Prime,true,sizeof(is_Prime));
+	SieveOfErathostenes();
 
-    }
+	ull N, T;
+	cin >> N;
+	
+	for(int i = 0; i < N; i++){
+		cin >> T;
+		cout << (T_Primes.count(T) ? "YES" : "NO") << endl;	
+	}
+	
     return 0;
 }
