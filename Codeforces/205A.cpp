@@ -8,24 +8,24 @@ typedef vector<VI> VII;
 int main(){
     ios_base::sync_with_stdio(false);cin.tie(0);
 
-    int N;
-    set<int> mset;
+    int N, dummy;
+    int min = 2 * 1e9;
+    bool can = true;
+
     cin >> N;
-    int mini,pos;
-    mini = 1e9;
-
+    int anw = 0;
     for(int i = 0; i < N; i++){
-        int dummy;
         cin >> dummy;
-        if(dummy < mini){
-            mini = dummy;
-            pos = i+1;
+        if(dummy == min){
+            can = false;
+        }else if(dummy < min){
+            min = dummy;
+            can = true;
+            anw = i + 1;
         }
-        mset.insert(dummy);
     }
-
-    if(mset.size() != N) cout << "Still Rozdil" << endl;
-    else cout << pos << endl;
+    if(!can) cout << "Still Rozdil" << endl;
+    else cout << anw << endl; 
 
     return 0;
 }
