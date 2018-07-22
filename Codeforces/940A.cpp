@@ -15,17 +15,21 @@ int main(){
         cin >> dummy;
         V.push_back(dummy);
     }
-    int cnt = 0;
+
     sort(V.begin(),V.end());
-    int cnt1, cnt2;
-    cnt1 = cnt2 = 0;
+    int maxi = -1e9;
+    int cnt = 0;
     for(int i = 0; i < N; i++){
-        for(int j = i+1; j < N; i++){
+        int cnt = 0;
+        for(int j = i+1; j < N; j++){
             if(abs(V[i]-V[j]) > D){
-                cnt1++;
+                cnt++;
             }
         }
+        // cout << i << " cnt -> " << cnt << endl;
+        maxi = max(maxi,cnt);
     }
-    cout << cnt1 << endl;
+    
+    cout << maxi << endl;
     return 0;
 }
