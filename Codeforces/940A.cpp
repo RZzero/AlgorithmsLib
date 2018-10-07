@@ -17,19 +17,11 @@ int main(){
     }
 
     sort(V.begin(),V.end());
-    int maxi = -1e9;
+    int L = 0, R = V.size() -1;
     int cnt = 0;
-    for(int i = 0; i < N; i++){
-        int cnt = 0;
-        for(int j = i+1; j < N; j++){
-            if(abs(V[i]-V[j]) > D){
-                cnt++;
-            }
-        }
-        // cout << i << " cnt -> " << cnt << endl;
-        maxi = max(maxi,cnt);
+    while(L < R){
+        
     }
-    
-    cout << maxi << endl;
+
     return 0;
 }
