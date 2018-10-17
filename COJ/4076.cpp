@@ -21,17 +21,17 @@ void add(int i, int val) // Adds val to element with index i
 }
 
 int main(){
-  int N;
+  int N, T,x,L,R;
   scanf("%d", &N);
   for(int i = 0; i < N; i++){
-    int T; scanf("%d", &T);
+    scanf("%d", &T);
     if(T == 1){
-      int x; scanf("%d", &x);
+      scanf("%d", &x);
       add(x, 1);
     }else if(T == 2){
-      int L, R; cin >> L >> R;
-      if(L == 1) cout << sum(R) << endl;
-      else cout << sum(R) - sum(L - 1) << endl;
+      scanf("%d%d",&L,&R);
+      if(L == 1) printf("%d\n", sum(R));
+      else printf("%d\n", sum(R) - sum(L - 1));
     }
   }
   return 0;

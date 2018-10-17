@@ -75,7 +75,9 @@
         "stack": "cpp",
         "__locale": "cpp",
         "random": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "__config": "cpp",
+        "__nullptr": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
