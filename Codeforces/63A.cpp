@@ -1,31 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int getTicket(string s){
-  if(s == "rat") return 0;
-  if(s == "woman" || s == "child") return 1;
-  if(s == "man") return 2;
-  else return 3;
-}
-
-bool operator<(const Event &e) const{
-    if(x != e.x) return x < e.x;
-    return type < e.type;
-}
-
 int main(){
-  vector< pair<int,string> > crew;
+  map<string, vector<string>> mapa;
   int N;
   cin >> N;
-  for(int i = 0; i < N; i++){
-    string a,b;
-    cin >> a >> b;
-    crew.push_back(make_pair(getTicket(b), a ));
+  
+  for(int i = 0; i < N; i++) {
+    string name, role;
+    cin >> name >> role;
+    if (role == "woman" || role == "child") {
+      mapa["woman"].push_back(name);
+    }else {
+      mapa[role].push_back(name);
+    }
   }
 
-  sort(crew.begin(),crew.end(), comp);
-  for(auto member: crew){
-    cout << member.second << endl;
-  }
+  for(int i = 0; i < mapa["rat"].size(); i++)
+    cout << mapa["rat"][i] << endl;
+  
+  for(int i = 0; i < mapa["woman"].size(); i++)
+    cout << mapa["woman"][i] << endl;
+
+  for(int i = 0; i < mapa["man"].size(); i++)
+    cout << mapa["man"][i] << endl;
+
+  for(int i = 0; i < mapa["captain"].size(); i++)
+    cout << mapa["captain"][i] << endl;
+
   return 0;
 }
