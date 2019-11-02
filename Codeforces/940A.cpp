@@ -4,24 +4,29 @@ using namespace std;
 
 
 int main(){
+  int N, D;
 
-    int N, D;
+  cin >> N >> D;
+  vector<int> V;
 
-    cin >> N>> D;
-    vector<int> V;
-    int dummy;
+  for(int i = 0; i < N; i++){
+    int dummy; cin >> dummy;
+    V.push_back(dummy);
+  }
 
-    for(int i = 0; i < N; i++){
-        cin >> dummy;
-        V.push_back(dummy);
+  sort(V.begin(), V.end());
+
+  int answer = 0;
+  for(int i = 0; i < N; i++) {
+    for (int j = i; j < N; j++) {
+      if (V[j] - V[i] <= D) {
+        answer = max(answer, j - i + 1);
+      }
     }
 
-    sort(V.begin(),V.end());
-    int L = 0, R = V.size() -1;
-    int cnt = 0;
-    while(L < R){
-        
-    }
+  }
 
-    return 0;
+  cout << (N == 1 ? 0 : N-answer) << endl;
+
+  return 0;
 }

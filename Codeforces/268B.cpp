@@ -7,8 +7,8 @@ int main(){
   cin >> N;
 
   Long anw = 0;
-  for(int i = 1; i < N; i++){
-    anw += (N-i) * (i);
+  for(int i = 0; i < N; i++){
+    anw += (i * N - i);
   }
 
   cout << anw << endl;
