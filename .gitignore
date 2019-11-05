@@ -4,3 +4,4 @@
 *.o
 *.in
 *.out
+*.DS_Store
