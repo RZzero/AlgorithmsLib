@@ -77,7 +77,18 @@
         "random": "cpp",
         "algorithm": "cpp",
         "__config": "cpp",
-        "__nullptr": "cpp"
+        "__nullptr": "cpp",
+        "__debug": "cpp",
+        "__errc": "cpp",
+        "__functional_base": "cpp",
+        "__mutex_base": "cpp",
+        "__node_handle": "cpp",
+        "__string": "cpp",
+        "__threading_support": "cpp",
+        "__tuple": "cpp",
+        "bit": "cpp",
+        "ios": "cpp",
+        "locale": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
