@@ -88,7 +88,8 @@
         "__tuple": "cpp",
         "bit": "cpp",
         "ios": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "__functional_03": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
