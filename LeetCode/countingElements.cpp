@@ -5,8 +5,9 @@
 using namespace std;
 
 int countElements(vector<int>& arr) {
-  int answer = 0;
-  map<int,int> mapa;
+    int answer = 0;
+    map<int,int> mapa;
+    
 
   for (int i = 0; i < arr.size(); i++) {
     mapa[arr[i]]++;
@@ -20,6 +21,7 @@ int countElements(vector<int>& arr) {
   }
   return answer;
 }
+
 int main () {
   vector<int> test = {1,2,3};
   cout << countElements(test) << endl;
