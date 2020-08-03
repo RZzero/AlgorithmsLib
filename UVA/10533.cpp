@@ -12,6 +12,8 @@ vector<int> digitPrimes;
 vector<int> PS(MAX, 0);
 
 void SieveOfErathostenes(){
+  is_Prime[0] = false;
+  is_Prime[1] = false;
 	for(Long i = 2; i <= MAX; i++){
 		if(is_Prime[i]){
 			for(Long j = i + i; j <= MAX; j+=i){
@@ -60,9 +62,6 @@ int main () {
   int N;
   scanf("%d", &N);
 
-  // for (int i = 0; i <=30; i++) cout << PS[i] << " ";
-  // cout << endl;
-  if (N == 0) { printf("%d\n", 0); return 0; }
   while (N--) {
     int L, R;
     scanf("%d%d", &L, &R);
@@ -72,7 +71,11 @@ int main () {
     } else if (PS[L] == PS[R] && PS[L] > PS[L-1]) {
       printf("%d\n", PS[L]- PS[L-1]);
     } else {
-      printf("%d\n", PS[R]- PS[L]);
+      if (is_Prime[L] && is_Prime[sumOfDigits(L)] && is_Prime[R] && is_Prime[sumOfDigits(R)]) {
+        printf("%d\n", PS[R] - PS[L] + 1);
+      } else {
+        printf("%d\n", PS[R] - PS[L]);
+      }
     }
 
   }
