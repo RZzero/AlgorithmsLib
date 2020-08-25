@@ -3,11 +3,13 @@
 #include <set>
 #include <math.h>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 set<int> powers;
 
+// Analizing numbers in binary representation
 string to_bin(int N) {
   string answer = "";
   while (N) {
@@ -46,31 +48,28 @@ vector<int> representation_of_two(int N) {
 
 int main () {
   int N, K;
-  // cin >> N >> K;
-  N = 200, K = 197;
+  cin >> N >> K;
   powers = get_powers_of_two();
+  vector<int> binary_representation = representation_of_two(N);
 
-  if ((K > N) || (K == 1 && !powers.count(N))) {
+  if ((K > N) || (K == 1 && !powers.count(N)) || (K < binary_representation.size())) {
     cout << "NO" << endl;
   } else {
-    vector<int> initial_representation = representation_of_two(N);
-    if (K == 1 && powers.count(N)) {
-      cout << "YES" << endl;
-      cout << N << endl;
-      return 0;
-    } else if (K < initial_representation.size()) {
-      cout << "NO" << endl;
-      return 0;
-    } else if (K == initial_representation.size()) {
-      cout << "YES" << endl;
-      for(auto &n: initial_representation) cout << n << " ";
-      return 0;
+    cout << "YES" << endl;
+
+    for (int i = 0; binary_representation.size() != K;) {
+      if (binary_representation[i] == 1) {
+        i++;
+      } else {
+        int next_split = binary_representation[i] / 2;
+        binary_representation.push_back(next_split);
+        binary_representation[i] = next_split;
+        if (next_split == 1) i++;
+      }
     }
-  
-    sort(initial_representation.rbegin(), initial_representation.rend());
-  
-    for (int i = 0; i < initial_representation.size(); i++) {
-      cout << initial_representation[i] << " ";
+
+    for (int i = 0; i < binary_representation.size(); i++) {
+      cout << binary_representation[i] << " ";
     }
     cout << endl;
   }
