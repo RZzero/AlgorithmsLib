@@ -1,51 +1,39 @@
-#include <iostream>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long Long;
 
-vector<string> filter_names(string &S) {
-  vector<string> answer;
-  char comilla = '"';
-  string coma = ",";
-
-  for (int i = 0; i < S.size();) {
-    if (S[i] == comilla) {
-      int j = i+1;
-      if (j >= S.size()) break;
-      string current_name = "";
-      while (S[j] != comilla) {
-        current_name+=S[j];
-        j++;
-      }
-      if (current_name != coma) {
-        answer.push_back(current_name);
-      }
-      i = j;
-    } else { i++; }
+vector<string> filter_names() {
+  vector<string> names;
+  string name;
+  while (getline(cin, name, ',')) {
+    string names_with_removed_comma = "";
+    for (auto c: name) {
+      if (c >= 'A' && c <= 'Z')
+        names_with_removed_comma += c;
+    }
+    names.push_back(names_with_removed_comma);
   }
-  return answer;
+
+  return names;
 }
 
 int main () {
   freopen("names.txt", "r", stdin);
+  freopen("output_names.txt", "w", stdout);
 
-  string names_list;
-  Long name_position = 0;
   Long answer = 0;
-  while (cin >> names_list) {
+  vector<string> names = filter_names();
+  sort(names.begin(), names.end());
 
-    vector<string> names = filter_names(names_list);
-    sort(names.begin(), names.end());
-
+  for (Long i = 0; i < names.size(); i++) {
     Long current_name_value = 0;
-    for (Long i = 0; i < names.size(); i++) {
-      for (auto &c: names[i]) {
-        current_name_value += ((Long)c-'A')+1;
-      }
-      answer += (current_name_value * 1LL * (i+1));
+    cout << names[i] << endl;
+    for (auto c: names[i]) {
+      current_name_value += (((Long)c-'A')+1);
     }
+    answer += (current_name_value * 1LL * (i+1));
   }
+
   cout << answer << endl;
   return 0;
 }
