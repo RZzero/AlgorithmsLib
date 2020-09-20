@@ -1,2 +1,2 @@
 # AlgorithmsLib
-Algorithms repo of my competitive programming journey
+Algorithms repo of my competitive programming an interview prep journey.
