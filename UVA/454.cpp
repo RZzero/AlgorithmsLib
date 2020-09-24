@@ -22,8 +22,8 @@ string clean_phrase(string s) {
 }
 
 int main() {
-  // freopen("454.in", "r", stdin);
-  // freopen("454.out", "w", stdout);
+  freopen("454.in", "r", stdin);
+  freopen("454.out", "w", stdout);
 
   int T;
   cin >> T;
