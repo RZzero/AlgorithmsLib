@@ -22,16 +22,25 @@ string clean_phrase(string s) {
 }
 
 int main() {
+  freopen("454.in", "r", stdin);
+  freopen("454.out", "w", stdout);
+
   int T;
   cin >> T;
   cin.ignore();
+  cin.ignore();
   while (T--) {
     string phrase;
+    set<string> unique_phrases;
     vector<string> phrases;
 
-    while (getline(cin, phrase) && phrase != "") {
-      phrases.push_back(phrase);
+    while (getline(cin, phrase)) {
+      if (phrase == "") break;
+      unique_phrases.insert(phrase);
     }
+
+    for (auto el: unique_phrases)
+      phrases.push_back(el);
 
     sort(phrases.begin(), phrases.end());
 
@@ -42,7 +51,7 @@ int main() {
         }
       }
     }
-    cout << endl;
+    if (T) cout << endl;
   }
   return 0;
 }
