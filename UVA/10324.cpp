@@ -4,13 +4,12 @@
 using namespace std;
 
 int main () {
-  freopen("10324.in", "r", stdin);
-  freopen("10324.out", "w", stdout);
+  // freopen("10324.in", "r", stdin);
+  // freopen("10324.out", "w", stdout);
   string s;
 
   int counter = 1;
   while (cin >> s) {
-    if (s == "\n") break;
     int T; cin >> T;
 
     cout << "Case " << counter << ":" << endl;
@@ -18,9 +17,9 @@ int main () {
       int L,R;
       cin >> L >> R;
       bool can = true;
-      L = min(L,R);
-      R = max(L,R);
-      for (int j = L+1; j <= R; j++) {
+      int l = min(L,R);
+      int r = max(L,R);
+      for (int j = l+1; j <= r; j++) {
         if (s[j] != s[j-1])
           can = false;
       }
