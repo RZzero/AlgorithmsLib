@@ -15,7 +15,7 @@ int calculate_val(string s) {
 
 int mex(int N) {
   if (N < 10) return N;
-  
+
   int cur_val = 0;
   while (N > 0) {
     cur_val += N%10;
@@ -33,7 +33,7 @@ int main () {
     getline(cin, b);
     int a_value = mex(calculate_val(a));
     int b_value = mex(calculate_val(b));
-    cout << fixed << setprecision(2) << (min(a_value,b_value)*1.0 / max(a_value,b_value)) * 100 << "%" <<endl;
+    cout << fixed << setprecision(2) << (min(a_value,b_value)*1.0 / max(a_value,b_value)) * 100 << " %" <<endl;
   }
   return 0;
 }
