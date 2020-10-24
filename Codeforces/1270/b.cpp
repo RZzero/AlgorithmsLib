@@ -1,5 +1,5 @@
 // #include <bits/stdc++.h>
-#include </Users/rsuazo/bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 int const MAX_NUMBER = 2e9;
