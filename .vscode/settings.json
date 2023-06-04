@@ -88,7 +88,12 @@
         "__tuple": "cpp",
         "bit": "cpp",
         "ios": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "__bits": "cpp",
+        "__verbose_abort": "cpp",
+        "variant": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
