@@ -93,7 +93,8 @@
         "__verbose_abort": "cpp",
         "variant": "cpp",
         "compare": "cpp",
-        "concepts": "cpp"
+        "concepts": "cpp",
+        "numbers": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
