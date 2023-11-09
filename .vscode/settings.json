@@ -94,7 +94,10 @@
         "variant": "cpp",
         "compare": "cpp",
         "concepts": "cpp",
-        "numbers": "cpp"
+        "numbers": "cpp",
+        "span": "cpp",
+        "ranges": "cpp",
+        "stacktrace": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
