@@ -31,11 +31,6 @@ int main() {
     for (auto &p : permutation) {
       cout << p << " ";
     }
-    // cout << endl;
-    // for (int i = 0; i < permutation.size()-1; i++) {
-    //   cout << abs(permutation[i+1]-permutation[i]) << " ";
-    // }
-    // cout << "\n";
     cout << "\n";
   }
   return 0;
