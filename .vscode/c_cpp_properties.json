@@ -37,7 +37,7 @@
                 "${workspaceRoot}"
             ],
             "defines": [],
-            "intelliSenseMode": "clang-x64",
+            "intelliSenseMode": "linux-gcc-x64",
             "browse": {
                 "path": [
                     "/usr/include/c++/7",
@@ -55,7 +55,7 @@
             },
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",
-            "cppStandard": "c++17"
+            "cppStandard": "c++23"
         },
         {
             "name": "Win32",
