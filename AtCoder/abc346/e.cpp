@@ -7,7 +7,7 @@ struct paint {
 };
 
 int main() {
-  int H, W, M;
+  Long H, W, M;
   cin >> H >> W >> M;
   vector<bool> rows(H + 1, false);
   vector<bool> columns(W + 1, false);
