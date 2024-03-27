@@ -14,12 +14,13 @@ int main() {
     int second_half = 0;
 
     for (int i = 0; i < S.size(); i++) {
-      if (i < 3) first_half += (int)S[i];
-      else second_half += (int)S[i];
+      if (i < 3)
+        first_half += (int)S[i];
+      else
+        second_half += (int)S[i];
     }
 
     cout << (first_half == second_half ? "YES" : "NO") << endl;
-
   }
   return 0;
 }
