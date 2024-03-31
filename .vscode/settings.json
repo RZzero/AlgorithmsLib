@@ -98,7 +98,8 @@
         "span": "cpp",
         "ranges": "cpp",
         "stacktrace": "cpp",
-        "charconv": "cpp"
+        "charconv": "cpp",
+        "execution": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
