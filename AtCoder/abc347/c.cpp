@@ -15,3 +15,7 @@ int main() {
   cout << (can ? "Yes" : "No") << endl;
   return 0;
 }
+// 4 planes a partir del dia 5
+// 0123456789
+// DDDDXXXXDD
+// DDDDDXXXXDD
