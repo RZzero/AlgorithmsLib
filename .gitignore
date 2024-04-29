@@ -5,4 +5,7 @@
 *.in
 *.out
 *.DS_Store
+*.bin
 .vscode/*
+*.cph
+*.prob

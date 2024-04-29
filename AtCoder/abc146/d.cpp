@@ -1,56 +1,68 @@
-// #include <bits/stdc++.h>
 #include <bits/stdc++.h>
-
 using namespace std;
-using Long = long long;
-typedef vector<int> VI;
-typedef vector<VI> VII;
-
+using VI = vector<int>;
+using VII = vector<VI>;
+int N;
+VI vis_bfs;
 VII adj;
-VI vis;
-int numberOfColors = 0;
-int currentNumberColor = 0;
-vector<set<int>> colorsForNode;
+int max_colors = 0;
+VI answer;
+struct Edge {
+  int idx, u, v;
+};
+vector<Edge> edges;
 
-void DFS(int u, int parentColor, int currentColor) {
-  vis[u] = true;
-  for(auto v: adj[u]) {
-    if (vis[v]) continue;
-    if (currentColor == parentColor && u != 0) {
-      currentColor++;
-    }
-    int colorForthisNode = (currentColor % numberOfColors) + 1;
-    cout << colorForthisNode << endl;
-    DFS(v, colorForthisNode + 1, currentColor + 1);
-  }
-}
-
-int main (){
-  int N;
+int main() {
   cin >> N;
   adj = VII(N);
-  vis = VI(N, 0);
-  colorsForNode = vector<set<int>>(N);
-  for(int i = 0; i < N - 1; i++) {
-    int u,v;
+  vis_bfs = VI(N, 0);
+
+  for (int i = 0; i < N - 1; i++) {
+    int u, v;
     cin >> u >> v;
-    u--; v--;
+    u--;
+    v--;
     adj[u].push_back(v);
     adj[v].push_back(u);
+    edges.push_back({i, u, v});
   }
 
-  for (int i = 0; i < adj.size(); i++){
-    numberOfColors = max(numberOfColors, (int)adj[i].size());
+  for (int u = 0; u < N; u++) {
+    max_colors = max(max_colors, (int)adj[u].size());
   }
 
-  cout << numberOfColors << endl;
-  DFS(0, 0, 0);
+  queue<int> q;
+  q.push(0);
+  vis_bfs[0] = true;
+  map<pair<int, int>, int> color_for_edge;
+  int current_color = 0;
+  vector<int> parent(N, -1);
+  parent[0] = -1;
+  while (!q.empty()) {
+    int u = q.front();
+    q.pop();
+    for (int v : adj[u]) {
+      if (!vis_bfs[v]) {
+        vis_bfs[v] = true;
+        parent[v] = u;
 
+        if (parent[u] != -1) {
+          int grandparent = parent[u];
+          current_color += color_for_edge[{min(u, grandparent), max(u, grandparent)}] == (current_color % max_colors);
+        }
+
+        q.push(v);
+        color_for_edge[{min(u, v), max(u, v)}] = current_color % max_colors;
+
+        current_color++;
+      }
+    }
+  }
+
+  cout << max_colors << endl;
+  for (int i = 0; i < edges.size(); i++) {
+    auto &edge = edges[i];
+    cout << color_for_edge[{min(edge.u, edge.v), max(edge.u, edge.v)}] + 1 << endl;
+  }
   return 0;
 }
-
-/*
-5
-1 2 2 3 3 4 2 5
-
-*/
