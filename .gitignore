@@ -7,5 +7,5 @@
 *.DS_Store
 *.bin
 .vscode/*
-*.cph
+*.cph/*
 *.prob
