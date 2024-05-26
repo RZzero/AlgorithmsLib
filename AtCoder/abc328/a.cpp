@@ -5,7 +5,8 @@ int main() {
   int N, X;
   cin >> N >> X;
   vector<int> ratings(N);
-  for (auto &r: ratings) cin >> r;
+  for (auto &r : ratings)
+    cin >> r;
 
   int sum = 0;
   for (int i = 0; i < ratings.size(); i++)
