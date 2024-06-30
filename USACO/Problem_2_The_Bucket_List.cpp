@@ -23,7 +23,12 @@ int main() {
     return (lhsEvent.end < rhsEvent.end);
   });
 
-  for (auto &cow : cows)
-    cout << cow.start << " " << cow.end << " " << cow.required << endl;
+  int answer = 0;
+  int available_amount = 0;
+  while (cows.size()) {
+    Event cur = cows.front();
+  }
+
+  cout << answer << endl;
   return 0;
 }
