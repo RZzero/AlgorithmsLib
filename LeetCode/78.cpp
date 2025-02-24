@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-  vector<int> nums = { 1, 2, 3 };
+  vector<int> nums = {1, 2, 3};
 
   int nums_size = nums.size();
   vector<vector<int>> answer;
@@ -15,6 +15,6 @@ int main() {
     }
     answer.push_back(current_subset);
   }
-  
+
   return 0;
 }
