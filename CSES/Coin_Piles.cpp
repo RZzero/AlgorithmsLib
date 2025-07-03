@@ -1,27 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
+using Long = long long;
 
 int main() {
   int T;
   cin >> T;
 
   while (T--) {
-    int x, y;
+    Long x, y;
     cin >> x >> y;
 
-    int maxi = max(x, y);
-    int mini = min(x, y);
-
-    while (maxi > 0 && mini > 0) {
-      int times = (maxi - mini) / 2;
-
-      maxi = maxi - (2 * times);
-      mini -= times;
-      if (maxi < mini) {
-        swap(maxi, mini);
-      }
+    Long maxi = max(x, y);
+    Long mini = min(x, y);
+    if ((maxi + mini %3 == 0) && maxi <= 2*mini) {
+        cout << "YES" << endl;
     }
-    cout << (maxi == mini && maxi == 0 ? "YES" : "NO") << endl;
+    cout << "NO" << endl;
   }
   return 0;
 }
